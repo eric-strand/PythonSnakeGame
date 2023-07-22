@@ -19,7 +19,9 @@ class Snake:
             pygame.draw.rect(screen, (0,255,0),(segment[0],segment[1], BLOCK_SIZE, BLOCK_SIZE))
     
     def move(self):
+        temp_list = []
         for segment in self.body:
+            self.body
 
 
 running = True
