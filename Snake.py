@@ -21,33 +21,8 @@ class Snake:
     def move(self):
         temp_list = []
         for segment in self.body:
-            self.body
-
-
-running = True
-snake = Snake()
-while running:
-    # Close game window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    
-    pygame.draw.circle(screen,(255,0,0),(320,320),10)
-    pygame.display.update()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            temp_list.append((segment[0],segment[1]+BLOCK_SIZE))
+        self.body = temp_list
 
 
 class Food:
@@ -61,6 +36,28 @@ class Food:
         position = (x,y) 
         
         pygame.draw.circle(self.surface, "WHITE", position, 10, 10)
+
+
+running = True
+snake = Snake()
+food = Food()
+
+while running:
+    # Close game window
+    pygame.time.delay(100)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+    #pygame.draw.circle(screen,(255,0,0),(320,320),10)
+    #food.spawn_food()
+    screen.fill((0,0,0))
+    food.spawn_food()
+    snake.draw(screen)
+    snake.move()
+    pygame.display.update()
+
+
    
     
 
