@@ -39,24 +39,22 @@ class Snake:
 
 
 class Food:
-    def __init__(self):
+    def __init__(self, position):
         self.surface = screen
+        self.position = position
 
-    def spawn_food(self, snake_head):
-        if snake_head > 300:
-            x = random.randint(10, WINDOW_WIDTH - 10)
-            y = random.randint(10, WINDOW_HEIGHT - 10)
-            
-            position = (x,y) 
-        else:
-            position = (100,300)
-        
-        pygame.draw.circle(self.surface, "WHITE", position, 10, 10)
+    def spawn_food(self):
+        pygame.draw.circle(self.surface, "WHITE", self.position, 10, 10)
+
+    def get_position(self):
+        return self.position
+    
+
 
 
 running = True
 snake = Snake()
-food = Food()
+food = Food((100,100))
 
 while running:
     # Close game window
@@ -68,7 +66,16 @@ while running:
     #pygame.draw.circle(screen,(255,0,0),(320,320),10)
     #food.spawn_food()
     screen.fill((0,0,0))
+<<<<<<< HEAD
     #food.spawn_food(snake.body[0][1])
+=======
+    
+    snake_head_x = snake.body[0][0]
+    snake_head_y = snake.body[0][1]
+    
+    food.spawn_food()
+    food_position = food.get_position()
+>>>>>>> ff9a46f93f92ce2c6456f870eb7e128ba4c15f01
     snake.draw(screen)
 
     key = pygame.key.get_pressed()
@@ -81,6 +88,9 @@ while running:
     if key[pygame.K_DOWN]:
         snake.direction = "Down"
     snake.move()
+
+    if(snake_head_x == food_position[0] and snake_head_y == food_position[1]):
+        food.position = (random.randint(0, WINDOW_WIDTH - 10), random.randint(0, WINDOW_HEIGHT - 10))
     pygame.display.update()
 
 
