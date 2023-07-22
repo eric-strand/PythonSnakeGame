@@ -20,33 +20,7 @@ class Snake:
     
     def move(self):
         for segment in self.body:
-
-
-running = True
-snake = Snake()
-while running:
-    # Close game window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    
-    pygame.draw.circle(screen,(255,0,0),(320,320),10)
-    pygame.display.update()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            pass
 
 class Food:
     def __init__(self):
@@ -59,6 +33,23 @@ class Food:
         position = (x,y) 
         
         pygame.draw.circle(self.surface, "WHITE", position, 10, 10)
+
+
+running = True
+snake = Snake()
+food = Food()
+
+while running:
+    # Close game window
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+    pygame.draw.circle(screen,(255,0,0),(320,320),10)
+    food.spawn_food()
+    pygame.display.update()
+
+
    
     
 
