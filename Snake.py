@@ -70,6 +70,13 @@ while running:
     
     food.spawn_food()
     food_position = food.get_position()
+<<<<<<< HEAD
+=======
+    
+    if(snake_head_x == food_position[0] and snake_head_y == food_position[1]):
+        food.position = (random.randint(0, WINDOW_WIDTH - 10), random.randint(0, WINDOW_HEIGHT - 10))
+    
+>>>>>>> 19ff9d432283a0f5127cf57beff2745b7350ad43
     snake.draw(screen)
 
     key = pygame.key.get_pressed()
@@ -85,8 +92,6 @@ while running:
         snake.lenght +=1
     snake.move()
 
-    if(snake_head_x == food_position[0] and snake_head_y == food_position[1]):
-        food.position = (random.randint(0, WINDOW_WIDTH - 10), random.randint(0, WINDOW_HEIGHT - 10))
     pygame.display.update()
 
 
