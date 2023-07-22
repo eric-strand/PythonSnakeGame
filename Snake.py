@@ -37,7 +37,6 @@ class Food:
         
         pygame.draw.circle(self.surface, "WHITE", position, 10, 10)
 
-
 running = True
 snake = Snake()
 food = Food()
@@ -52,7 +51,8 @@ while running:
     #pygame.draw.circle(screen,(255,0,0),(320,320),10)
     #food.spawn_food()
     screen.fill((0,0,0))
-    food.spawn_food()
+    if(snake.body[0][1] > 400):
+        food.spawn_food()
     snake.draw(screen)
     snake.move()
     pygame.display.update()
